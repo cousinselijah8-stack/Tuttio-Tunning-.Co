@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tuttio Tuning Co.</title>
+
+
+<style>
+
+* {
+box-sizing:border-box;
+}
+
+
+body {
+
+margin:0;
+font-family:Arial, sans-serif;
+background:#050505;
+color:white;
+
+}
+
+
+/* HOME PAGE */
+
+.page {
+
+display:none;
+
+}
+
+
+
+#home {
+
+display:flex;
+
+}
+
+
+
+header {
+
+height:100vh;
+
+background:
+
+linear-gradient(
+rgba(0,0,0,.75),
+rgba(70,0,120,.85)
+);
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:30px;
+
+}
+
+
+
+header h1 {
+
+font-size:70px;
+
+color:#c000ff;
+
+text-shadow:
+
+0 0 15px purple,
+0 0 35px purple;
+
+}
+
+
+
+header p {
+
+font-size:25px;
+
+}
+
+
+
+
+
+/* MENU BUTTON */
+
+
+.menu-button {
+
+position:fixed;
+
+top:20px;
+
+left:20px;
+
+font-size:35px;
+
+background:#8000ff;
+
+padding:8px 15px;
+
+border-radius:12px;
+
+cursor:pointer;
+
+z-index:200;
+
+}
+
+
+
+
+
+/* SIDE MENU */
+
+
+#sideMenu {
+
+position:fixed;
+
+top:0;
+
+left:-300px;
+
+height:100%;
+
+width:260px;
+
+background:#111;
+
+border-right:2px solid purple;
+
+padding-top:80px;
+
+transition:.3s;
+
+z-index:150;
+
+}
+
+
+
+#sideMenu a {
+
+display:block;
+
+padding:20px;
+
+color:white;
+
+text-decoration:none;
+
+font-size:20px;
+
+cursor:pointer;
+
+}
+
+
+
+#sideMenu a:hover {
+
+background:#8000ff;
+
+}
+
+
+
+
+
+/* CART BUTTON */
+
+
+#cartButton {
+
+position:fixed;
+
+right:20px;
+
+top:20px;
+
+background:#8000ff;
+
+padding:15px;
+
+border-radius:15px;
+
+cursor:pointer;
+
+z-index:200;
+
+}
+
+
+
+
+
+
+
+/* SHOP BUTTON */
+
+
+button {
+
+background:#8000ff;
+
+color:white;
+
+border:none;
+
+padding:14px 25px;
+
+border-radius:12px;
+
+cursor:pointer;
+
+font-size:16px;
+
+}
+
+
+
+button:hover {
+
+background:#c000ff;
+
+}
+
+
+
+.shop-button {
+
+margin-top:30px;
+
+font-size:22px;
+
+padding:18px 55px;
+
+box-shadow:0 0 25px purple;
+
+}
+
+
+
+
+
+/* SEARCH */
+
+
+.search-area {
+
+padding:25px;
+
+background:#111;
+
+text-align:center;
+
+}
+
+
+
+#search {
+
+width:90%;
+
+max-width:500px;
+
+padding:15px;
+
+border-radius:15px;
+
+border:none;
+
+font-size:18px;
+
+}
+
+
+
+
+
+
+/* SHOP */
+
+
+.shop {
+
+padding:40px 20px;
+
+text-align:center;
+
+}
+
+
+
+.products {
+
+display:flex;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+gap:25px;
+
+}
+
+
+
+.card {
+
+background:#151515;
+
+border:2px solid purple;
+
+border-radius:20px;
+
+width:280px;
+
+padding:25px;
+
+box-shadow:0 0 20px purple;
+
+}
+
+
+
+.card h2 {
+
+color:#d000ff;
+
+}
+
+
+
+.price {
+
+font-size:25px;
+
+}
+
+
+
+
+
+/* CART WINDOW */
+
+
+#cart {
+
+display:none;
+
+position:fixed;
+
+right:20px;
+
+top:80px;
+
+background:#111;
+
+border:2px solid purple;
+
+padding:20px;
+
+width:320px;
+
+max-width:90%;
+
+border-radius:20px;
+
+z-index:200;
+
+}
+
+
+
+.item {
+
+border-bottom:1px solid purple;
+
+padding:10px;
+
+}
+
+
+
+
+
+/* ACCOUNT */
+
+
+#accountBox {
+
+background:#111;
+
+border:2px solid purple;
+
+padding:30px;
+
+border-radius:20px;
+
+max-width:400px;
+
+margin:auto;
+
+}
+
+
+
+input {
+
+padding:12px;
+
+width:90%;
+
+border-radius:10px;
+
+border:none;
+
+}
+
+
+
+
+
+/* MOBILE */
+
+
+@media(max-width:600px){
+
+
+header h1 {
+
+font-size:45px;
+
+}
+
+
+header p {
+
+font-size:18px;
+
+}
+
+
+.card {
+
+width:90%;
+
+}
+
+
+#cart {
+
+right:5%;
+
+width:90%;
+
+}
+
+
+}
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+
+<!-- MENU -->
+
+
+<div class="menu-button" onclick="openMenu()">
+
+☰
+
+</div>
+
+
+
+<div id="sideMenu">
+
+
+<a onclick="showPage('home')">
+Home
+</a>
+
+
+<a onclick="showPage('shop')">
+Shop
+</a>
+
+
+<a onclick="showPage('account')">
+My Account
+</a>
+
+
+<a onclick="showPage('cartPage')">
+Cart
+</a>
+
+
+<a onclick="showPage('about')">
+About
+</a>
+
+
+</div>
+
+
+
+
+
+<!-- CART -->
+
+
+<div id="cartButton">
+
+🛒 Cart (<span id="count">0</span>)
+
+</div>
+
+
+
+
+<div id="cart">
+
+<h2>
+Your Cart
+</h2>
+
+
+<div id="cartItems">
+
+</div>
+
+
+<h3>
+Total: $<span id="total">0</span>
+</h3>
+
+
+<button onclick="checkout()">
+
+Checkout
+
+</button>
+
+
+</div>
+
+
+
+
+
+<!-- HOME -->
+
+
+<div id="home" class="page">
+
+
+<header>
+
+
+<h1>
+Tuttio Tuning Co.
+</h1>
+
+
+<p>
+Premium Tuttio Soleil 01 Upgrade Parts
+</p>
+
+
+
+<button class="shop-button" onclick="showPage('shop')">
+
+SHOP NOW
+
+</button>
+
+
+</header>
+
+
+</div>
+<!-- SHOP PAGE -->
+
+<div id="shop" class="page">
+
+
+<section class="shop">
+
+
+<h1>
+Tuttio Soleil 01 Upgrade Shop
+</h1>
+
+
+<div class="search-area">
+
+
+<input 
+id="search"
+placeholder="Search upgrades..."
+onkeyup="searchProducts()">
+
+
+
+</div>
+
+
+
+
+<div class="products" id="productList">
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+Performance Throttle
+</h2>
+
+
+<p>
+Faster response and smoother acceleration.
+</p>
+
+
+<p class="price">
+$100
+</p>
+
+
+<button onclick="addCart('Performance Throttle',100)">
+
+Add To Cart
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+52T Rear Sprocket
+</h2>
+
+
+<p>
+Aluminum sprocket upgrade for more speed.
+</p>
+
+
+<p class="price">
+$45
+</p>
+
+
+<button onclick="addCart('52T Rear Sprocket',45)">
+
+Add To Cart
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+CNC Foot Pegs
+</h2>
+
+
+<p>
+Strong aluminum riding upgrade.
+</p>
+
+
+<p class="price">
+$70
+</p>
+
+
+<button onclick="addCart('CNC Foot Pegs',70)">
+
+Add To Cart
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+DNM Rear Shock
+</h2>
+
+
+<p>
+Better suspension and smoother rides.
+</p>
+
+
+<p class="price">
+$200
+</p>
+
+
+<button onclick="addCart('DNM Rear Shock',200)">
+
+Add To Cart
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+LED Baja Light Kit
+</h2>
+
+
+<p>
+Bright front light upgrade.
+</p>
+
+
+<p class="price">
+$150
+</p>
+
+
+<button onclick="addCart('LED Baja Light Kit',150)">
+
+Add To Cart
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+Upgraded Fender Kit
+</h2>
+
+
+<p>
+Aggressive look for your Soleil 01.
+</p>
+
+
+<p class="price">
+$70
+</p>
+
+
+<button onclick="addCart('Upgraded Fender Kit',70)">
+
+Add To Cart
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+Fast Charger
+</h2>
+
+
+<p>
+Charge your battery faster.
+</p>
+
+
+<p class="price">
+$120
+</p>
+
+
+<button onclick="addCart('Fast Charger',120)">
+
+Add To Cart
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+Custom Seat Cover
+</h2>
+
+
+<p>
+Comfort and style upgrade.
+</p>
+
+
+<p class="price">
+$50
+</p>
+
+
+<button onclick="addCart('Custom Seat Cover',50)">
+
+Add To Cart
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+</section>
+
+</div>
+
+
+
+
+
+
+
+
+<!-- ACCOUNT PAGE -->
+
+
+<div id="account" class="page">
+
+
+<section class="shop">
+
+
+<h1>
+My Account
+</h1>
+
+
+
+<div id="accountBox">
+
+
+<h2>
+Tuttio Tuning Account
+</h2>
+
+
+
+<input 
+id="email"
+type="email"
+placeholder="Email">
+
+
+<br><br>
+
+
+<input 
+id="password"
+type="password"
+placeholder="Password">
+
+
+<br><br>
+
+
+<button onclick="signup()">
+
+Create Account
+
+</button>
+
+
+
+<button onclick="login()">
+
+Login
+
+</button>
+
+
+
+<button onclick="logout()">
+
+Logout
+
+</button>
+
+
+
+<p id="message">
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- ABOUT PAGE -->
+
+
+<div id="about" class="page">
+
+
+<section class="shop">
+
+
+<h1>
+About Tuttio Tuning Co.
+</h1>
+
+
+
+<p>
+
+Tuttio Tuning Co. is built for riders who want
+to upgrade, customize, and improve their
+Tuttio Soleil 01.
+
+</p>
+
+
+<p>
+
+Performance. Style. Power.
+
+</p>
+
+
+</section>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- CART PAGE -->
+
+
+<div id="cartPage" class="page">
+
+
+<section class="shop">
+
+
+<h1>
+Your Cart
+</h1>
+
+
+<div id="cartPageItems">
+
+</div>
+
+
+</section>
+
+
+</div>
+<script>
+
+
+// ======================
+// MENU SYSTEM
+// ======================
+
+
+function openMenu(){
+
+
+let menu = document.getElementById("sideMenu");
+
+
+
+if(menu.style.left === "0px"){
+
+
+menu.style.left = "-300px";
+
+
+}
+
+else{
+
+
+menu.style.left = "0px";
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+// ======================
+// PAGE SWITCHING
+// ======================
+
+
+function showPage(page){
+
+
+
+let pages = document.getElementsByClassName("page");
+
+
+
+for(let i = 0; i < pages.length; i++){
+
+
+pages[i].style.display = "none";
+
+
+}
+
+
+
+
+document.getElementById(page).style.display = "block";
+
+
+
+openMenu();
+
+
+
+}
+
+
+
+
+
+
+
+// ======================
+// SEARCH SYSTEM
+// ======================
+
+
+function searchProducts(){
+
+
+let search = document
+.getElementById("search")
+.value
+.toLowerCase();
+
+
+
+let products = document
+.getElementById("productList")
+.getElementsByClassName("card");
+
+
+
+for(let i = 0; i < products.length; i++){
+
+
+let name = products[i]
+.innerText
+.toLowerCase();
+
+
+
+if(name.includes(search)){
+
+
+products[i].style.display="block";
+
+
+}
+
+else{
+
+
+products[i].style.display="none";
+
+
+}
+
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+// ======================
+// CART SYSTEM
+// ======================
+
+
+let cart = [];
+
+
+
+
+
+function addCart(name,price){
+
+
+
+cart.push({
+
+
+name:name,
+
+
+price:price
+
+
+});
+
+
+
+updateCart();
+
+
+
+}
+
+
+
+
+
+
+
+
+function updateCart(){
+
+
+
+document
+.getElementById("count")
+.innerHTML = cart.length;
+
+
+
+let items = "";
+
+let total = 0;
+
+
+
+
+cart.forEach(function(product,index){
+
+
+
+items += `
+
+<div class="item">
+
+<b>${product.name}</b>
+
+<br>
+
+$${product.price}
+
+<br><br>
+
+<button onclick="removeItem(${index})">
+
+Remove
+
+</button>
+
+
+</div>
+
+`;
+
+
+
+total += product.price;
+
+
+
+});
+
+
+
+
+
+document
+.getElementById("cartItems")
+.innerHTML = items;
+
+
+
+document
+.getElementById("total")
+.innerHTML = total;
+
+
+
+}
+
+
+
+
+
+
+
+
+function removeItem(index){
+
+
+cart.splice(index,1);
+
+
+
+updateCart();
+
+
+
+}
+
+
+
+
+
+
+
+document
+.getElementById("cartButton")
+.onclick=function(){
+
+
+
+let box =
+document.getElementById("cart");
+
+
+
+if(box.style.display === "block"){
+
+
+box.style.display="none";
+
+
+}
+
+else{
+
+
+box.style.display="block";
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+function checkout(){
+
+
+if(cart.length === 0){
+
+
+alert("Your cart is empty!");
+
+}
+
+
+else{
+
+
+alert(
+"Thanks for shopping with Tuttio Tuning Co!"
+);
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+// ======================
+// ACCOUNT SYSTEM
+// ======================
+
+
+// Firebase can be connected here later
+
+
+function signup(){
+
+
+document
+.getElementById("message")
+.innerHTML =
+"Account created! (Connect Firebase to save accounts)";
+
+
+}
+
+
+
+
+function login(){
+
+
+document
+.getElementById("message")
+.innerHTML =
+"Logged in! (Connect Firebase for real login)";
+
+
+}
+
+
+
+
+function logout(){
+
+
+document
+.getElementById("message")
+.innerHTML =
+"You have been logged out.";
+
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
