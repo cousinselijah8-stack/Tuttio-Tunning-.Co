@@ -1,478 +1,531 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Tuttio Tuning Co.</title>
-
+<title>Shadow Garage</title>
 
 <style>
 
-* {
-box-sizing:border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 
-body {
-
-margin:0;
-font-family:Arial, sans-serif;
-background:#050505;
-color:white;
-
+body{
+    background:#0b0b0b;
+    color:white;
 }
 
 
-/* HOME PAGE */
+/* TOP BAR */
 
-.page {
+header{
 
-display:none;
-
-}
-
-
-
-#home {
-
-display:flex;
-
-}
-
-
-
-header {
-
-height:100vh;
-
-background:
-
-linear-gradient(
-rgba(0,0,0,.75),
-rgba(70,0,120,.85)
-);
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-text-align:center;
-
-padding:30px;
+    height:80px;
+    background:#151515;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    box-shadow:0 0 20px #7a00ff;
 
 }
 
 
+header h1{
 
-header h1 {
-
-font-size:70px;
-
-color:#c000ff;
-
-text-shadow:
-
-0 0 15px purple,
-0 0 35px purple;
+    color:#a855ff;
+    letter-spacing:4px;
+    font-size:32px;
 
 }
 
 
-
-header p {
-
-font-size:25px;
-
-}
+/* HAMBURGER BUTTON */
 
 
+.menu{
 
-
-
-/* MENU BUTTON */
-
-
-.menu-button {
-
-position:fixed;
-
-top:20px;
-
-left:20px;
-
-font-size:35px;
-
-background:#8000ff;
-
-padding:8px 15px;
-
-border-radius:12px;
-
-cursor:pointer;
-
-z-index:200;
+    position:fixed;
+    top:20px;
+    left:20px;
+    z-index:2000;
+    cursor:pointer;
 
 }
 
 
+.menu span{
+
+    display:block;
+    width:35px;
+    height:5px;
+    background:white;
+    margin:6px;
+    border-radius:5px;
+
+}
 
 
 
 /* SIDE MENU */
 
 
-#sideMenu {
+.sidebar{
 
-position:fixed;
+    position:fixed;
+    left:-300px;
+    top:0;
+    height:100%;
+    width:270px;
+    background:#161616;
+    padding-top:100px;
+    transition:.4s;
+    z-index:1500;
+    box-shadow:0 0 30px #7a00ff;
 
-top:0;
+}
 
-left:-300px;
 
-height:100%;
+.sidebar.active{
 
-width:260px;
+    left:0;
 
-background:#111;
+}
 
-border-right:2px solid purple;
 
-padding-top:80px;
+.sidebar a{
 
-transition:.3s;
+    display:block;
+    padding:20px 30px;
+    color:white;
+    text-decoration:none;
+    font-size:20px;
 
-z-index:150;
+}
+
+
+.sidebar a:hover{
+
+    background:#7a00ff;
 
 }
 
 
 
-#sideMenu a {
+/* HOME SECTION */
 
-display:block;
 
-padding:20px;
+.home{
 
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+
+    linear-gradient(
+    rgba(0,0,0,.7),
+    rgba(0,0,0,.9)
+    ),
+
+    url("images/background.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+}
+
+
+.home h2{
+
+    font-size:65px;
+    color:#a855ff;
+
+}
+
+
+.home p{
+
+    font-size:22px;
+    margin-top:20px;
+    color:#ddd;
+
+}
+
+
+
+/* BUTTON */
+
+
+.shop{
+
+    display:inline-block;
+    margin-top:40px;
+    padding:18px 50px;
+    background:#7a00ff;
+    color:white;
+    text-decoration:none;
+    border-radius:15px;
+    font-size:22px;
+    transition:.3s;
+
+}
+
+
+.shop:hover{
+
+    transform:scale(1.1);
+    background:#a855ff;
+
+}
+
+
+
+/* FOOTER */
+
+
+footer{
+
+    text-align:center;
+    padding:30px;
+    background:#111;
+    color:#777;
+
+}
+
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<!-- MENU BUTTON -->
+
+<div class="menu" onclick="openMenu()">
+
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+
+
+
+<!-- SIDE NAVIGATION -->
+
+
+<div class="sidebar" id="side">
+
+
+<a href="index.html">
+🏠 Home
+</a>
+
+
+<a href="shop.html">
+🛒 Shop
+</a>
+
+
+<a href="about.html">
+📖 About
+</a>
+
+
+<a href="contact.html">
+📞 Contact
+</a>
+
+
+<a href="cart.html">
+🛍 Cart
+</a>
+
+
+</div>
+
+
+
+
+
+<header>
+
+<h1>
+SHADOW GARAGE
+</h1>
+
+</header>
+
+
+
+
+
+<section class="home">
+
+
+<div>
+
+
+<h2>
+BUILD YOUR RIDE
+</h2>
+
+
+<p>
+Premium eBike Parts • Upgrades • Clothing
+</p>
+
+
+
+<a href="shop.html" class="shop">
+SHOP NOW
+</a>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+<footer>
+
+© 2026 Shadow Garage
+
+</footer>
+
+
+
+
+
+<script>
+
+
+function openMenu(){
+
+document
+.getElementById("side")
+.classList.toggle("active");
+
+}
+
+
+</script>
+
+
+
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shop | Shadow Garage</title>
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+
+body{
+
+background:#0b0b0b;
 color:white;
 
-text-decoration:none;
-
-font-size:20px;
-
-cursor:pointer;
-
 }
 
 
 
-#sideMenu a:hover {
-
-background:#8000ff;
-
-}
-
-
-
-
-
-/* CART BUTTON */
-
-
-#cartButton {
-
-position:fixed;
-
-right:20px;
-
-top:20px;
-
-background:#8000ff;
-
-padding:15px;
-
-border-radius:15px;
-
-cursor:pointer;
-
-z-index:200;
-
-}
-
-
-
-
-
-
-
-/* SHOP BUTTON */
-
-
-button {
-
-background:#8000ff;
-
-color:white;
-
-border:none;
-
-padding:14px 25px;
-
-border-radius:12px;
-
-cursor:pointer;
-
-font-size:16px;
-
-}
-
-
-
-button:hover {
-
-background:#c000ff;
-
-}
-
-
-
-.shop-button {
-
-margin-top:30px;
-
-font-size:22px;
-
-padding:18px 55px;
-
-box-shadow:0 0 25px purple;
-
-}
-
-
-
-
-
-/* SEARCH */
-
-
-.search-area {
-
-padding:25px;
-
-background:#111;
-
-text-align:center;
-
-}
-
-
-
-#search {
-
-width:90%;
-
-max-width:500px;
-
-padding:15px;
-
-border-radius:15px;
-
-border:none;
-
-font-size:18px;
-
-}
-
-
-
-
-
-
-/* SHOP */
-
-
-.shop {
-
-padding:40px 20px;
-
-text-align:center;
-
-}
-
-
-
-.products {
-
-display:flex;
-
-justify-content:center;
-
-flex-wrap:wrap;
-
-gap:25px;
-
-}
-
-
-
-.card {
+header{
 
 background:#151515;
-
-border:2px solid purple;
-
-border-radius:20px;
-
-width:280px;
-
 padding:25px;
+text-align:center;
+box-shadow:0 0 20px #7a00ff;
 
-box-shadow:0 0 20px purple;
+}
+
+
+header h1{
+
+color:#a855ff;
+letter-spacing:4px;
 
 }
 
 
 
-.card h2 {
 
-color:#d000ff;
+.title{
+
+text-align:center;
+margin:50px 0 20px;
 
 }
 
 
 
-.price {
+.title h2{
 
+font-size:45px;
+color:#a855ff;
+
+}
+
+
+
+.products{
+
+
+width:90%;
+margin:auto;
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+padding:30px;
+
+
+}
+
+
+
+
+
+.card{
+
+
+background:#171717;
+border-radius:20px;
+padding:20px;
+text-align:center;
+box-shadow:0 0 20px #7a00ff55;
+transition:.3s;
+
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-10px);
+
+}
+
+
+
+
+.card img{
+
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:15px;
+background:#222;
+
+}
+
+
+
+
+.card h3{
+
+color:#a855ff;
+margin-top:20px;
 font-size:25px;
 
 }
 
 
 
+.card p{
 
-
-/* CART WINDOW */
-
-
-#cart {
-
-display:none;
-
-position:fixed;
-
-right:20px;
-
-top:80px;
-
-background:#111;
-
-border:2px solid purple;
-
-padding:20px;
-
-width:320px;
-
-max-width:90%;
-
-border-radius:20px;
-
-z-index:200;
+color:#ccc;
+margin:15px 0;
 
 }
 
 
 
-.item {
+.price{
 
-border-bottom:1px solid purple;
-
-padding:10px;
-
-}
-
-
-
-
-
-/* ACCOUNT */
-
-
-#accountBox {
-
-background:#111;
-
-border:2px solid purple;
-
-padding:30px;
-
-border-radius:20px;
-
-max-width:400px;
-
-margin:auto;
+font-size:22px;
+color:white;
 
 }
 
 
 
-input {
+.button{
 
-padding:12px;
 
-width:90%;
-
+display:inline-block;
+margin-top:15px;
+padding:12px 30px;
+background:#7a00ff;
+color:white;
+text-decoration:none;
 border-radius:10px;
 
-border:none;
+
+}
+
+
+
+.button:hover{
+
+background:#a855ff;
 
 }
 
 
 
 
+footer{
 
-/* MOBILE */
-
-
-@media(max-width:600px){
-
-
-header h1 {
-
-font-size:45px;
+text-align:center;
+padding:30px;
+color:#777;
+background:#111;
 
 }
 
-
-header p {
-
-font-size:18px;
-
-}
-
-
-.card {
-
-width:90%;
-
-}
-
-
-#cart {
-
-right:5%;
-
-width:90%;
-
-}
-
-
-}
 
 </style>
 
@@ -485,214 +538,424 @@ width:90%;
 
 
 
-<!-- MENU -->
-
-
-<div class="menu-button" onclick="openMenu()">
-
-☰
-
-</div>
-
-
-
-<div id="sideMenu">
-
-
-<a onclick="showPage('home')">
-Home
-</a>
-
-
-<a onclick="showPage('shop')">
-Shop
-</a>
-
-
-<a onclick="showPage('account')">
-My Account
-</a>
-
-
-<a onclick="showPage('cartPage')">
-Cart
-</a>
-
-
-<a onclick="showPage('about')">
-About
-</a>
-
-
-</div>
-
-
-
-
-
-<!-- CART -->
-
-
-<div id="cartButton">
-
-🛒 Cart (<span id="count">0</span>)
-
-</div>
-
-
-
-
-<div id="cart">
-
-<h2>
-Your Cart
-</h2>
-
-
-<div id="cartItems">
-
-</div>
-
-
-<h3>
-Total: $<span id="total">0</span>
-</h3>
-
-
-<button onclick="checkout()">
-
-Checkout
-
-</button>
-
-
-</div>
-
-
-
-
-
-<!-- HOME -->
-
-
-<div id="home" class="page">
-
-
 <header>
 
-
 <h1>
-Tuttio Tuning Co.
+SHADOW GARAGE
 </h1>
-
-
-<p>
-Premium Tuttio Soleil 01 Upgrade Parts
-</p>
-
-
-
-<button class="shop-button" onclick="showPage('shop')">
-
-SHOP NOW
-
-</button>
-
 
 </header>
 
 
+
+
+
+<div class="title">
+
+<h2>
+eBike Upgrades
+</h2>
+
 </div>
-<!-- SHOP PAGE -->
-
-<div id="shop" class="page">
 
 
-<section class="shop">
+
+
+
+<div class="products">
+
+
+
+<div class="card">
+
+<img src="images/72v-battery.jpg">
+
+<h3>
+72V Battery Upgrade
+</h3>
+
+<p>
+More speed, power, and range.
+</p>
+
+<div class="price">
+$1,299
+</div>
+
+<a class="button" href="72v-battery.html">
+View Upgrade
+</a>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<img src="images/motor.jpg">
+
+<h3>
+High Power Motor
+</h3>
+
+<p>
+Increase acceleration and torque.
+</p>
+
+<div class="price">
+$899
+</div>
+
+
+<a class="button" href="motor.html">
+View Upgrade
+</a>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<img src="images/controller.jpg">
+
+<h3>
+Performance Controller
+</h3>
+
+<p>
+Better tuning and power control.
+</p>
+
+
+<div class="price">
+$499
+</div>
+
+
+<a class="button" href="controller.html">
+View Upgrade
+</a>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+<img src="images/brakes.jpg">
+
+<h3>
+Brake Upgrade
+</h3>
+
+
+<p>
+Stronger stopping power.
+</p>
+
+
+<div class="price">
+$299
+</div>
+
+
+<a class="button" href="brakes.html">
+View Upgrade
+</a>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<div class="title">
+
+<h2>
+Shadow Garage Clothing
+</h2>
+
+</div>
+
+
+
+
+
+
+<div class="products">
+
+
+
+
+
+<div class="card">
+
+<img src="images/hoodie.jpg">
+
+
+<h3>
+Shadow Hoodie
+</h3>
+
+
+<p>
+Premium streetwear hoodie.
+</p>
+
+
+<div class="price">
+$60
+</div>
+
+
+<a class="button" href="hoodie.html">
+View Item
+</a>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<img src="images/shirt.jpg">
+
+
+<h3>
+Shadow Garage Shirt
+</h3>
+
+
+<p>
+Official Shadow Garage apparel.
+</p>
+
+
+<div class="price">
+$30
+</div>
+
+
+<a class="button" href="shirt.html">
+View Item
+</a>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+<footer>
+
+© 2026 Shadow Garage
+
+</footer>
+
+
+
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>72V Battery | Shadow Garage</title>
+
+<style>
+
+body{
+background:#0b0b0b;
+color:white;
+font-family:Arial;
+margin:0;
+}
+
+
+header{
+background:#151515;
+padding:25px;
+text-align:center;
+color:#a855ff;
+font-size:30px;
+}
+
+
+
+.product{
+
+width:90%;
+max-width:900px;
+margin:50px auto;
+text-align:center;
+
+}
+
+
+
+.product img{
+
+width:100%;
+max-width:600px;
+height:400px;
+object-fit:cover;
+border-radius:20px;
+
+}
+
+
+
+h1{
+
+color:#a855ff;
+font-size:45px;
+
+}
+
+
+
+.price{
+
+font-size:30px;
+color:white;
+margin:20px;
+
+}
+
+
+
+.description{
+
+font-size:20px;
+color:#ccc;
+line-height:1.6;
+
+}
+
+
+
+button{
+
+background:#7a00ff;
+border:none;
+padding:15px 40px;
+border-radius:12px;
+color:white;
+font-size:20px;
+cursor:pointer;
+margin-top:30px;
+
+}
+
+
+button:hover{
+
+background:#a855ff;
+
+}
+
+
+
+.back{
+
+display:block;
+margin-top:30px;
+color:#a855ff;
+text-decoration:none;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+SHADOW GARAGE
+
+</header>
+
+
+
+<div class="product">
+
+
+<img src="images/72v-battery.jpg">
 
 
 <h1>
-Tuttio Soleil 01 Upgrade Shop
+72V Battery Upgrade
 </h1>
 
 
-<div class="search-area">
+<div class="price">
 
-
-<input 
-id="search"
-placeholder="Search upgrades..."
-onkeyup="searchProducts()">
-
-
+$1,299
 
 </div>
 
 
 
+<p class="description">
 
-<div class="products" id="productList">
+Upgrade your ride with a high performance 72V battery.
+Experience faster acceleration, longer range, and more power.
 
-
-
-
-
-<div class="card">
-
-
-<h2>
-Performance Throttle
-</h2>
-
-
-<p>
-Faster response and smoother acceleration.
 </p>
 
 
-<p class="price">
-$100
-</p>
 
-
-<button onclick="addCart('Performance Throttle',100)">
+<button onclick="addCart('72V Battery Upgrade',1299)">
 
 Add To Cart
 
 </button>
 
 
-</div>
 
+<a class="back" href="shop.html">
+← Back To Shop
+</a>
 
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-52T Rear Sprocket
-</h2>
-
-
-<p>
-Aluminum sprocket upgrade for more speed.
-</p>
-
-
-<p class="price">
-$45
-</p>
-
-
-<button onclick="addCart('52T Rear Sprocket',45)">
-
-Add To Cart
-
-</button>
 
 
 </div>
@@ -700,763 +963,242 @@ Add To Cart
 
 
 
-
-
-
-<div class="card">
-
-
-<h2>
-CNC Foot Pegs
-</h2>
-
-
-<p>
-Strong aluminum riding upgrade.
-</p>
-
-
-<p class="price">
-$70
-</p>
-
-
-<button onclick="addCart('CNC Foot Pegs',70)">
-
-Add To Cart
-
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-DNM Rear Shock
-</h2>
-
-
-<p>
-Better suspension and smoother rides.
-</p>
-
-
-<p class="price">
-$200
-</p>
-
-
-<button onclick="addCart('DNM Rear Shock',200)">
-
-Add To Cart
-
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-LED Baja Light Kit
-</h2>
-
-
-<p>
-Bright front light upgrade.
-</p>
-
-
-<p class="price">
-$150
-</p>
-
-
-<button onclick="addCart('LED Baja Light Kit',150)">
-
-Add To Cart
-
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-Upgraded Fender Kit
-</h2>
-
-
-<p>
-Aggressive look for your Soleil 01.
-</p>
-
-
-<p class="price">
-$70
-</p>
-
-
-<button onclick="addCart('Upgraded Fender Kit',70)">
-
-Add To Cart
-
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-Fast Charger
-</h2>
-
-
-<p>
-Charge your battery faster.
-</p>
-
-
-<p class="price">
-$120
-</p>
-
-
-<button onclick="addCart('Fast Charger',120)">
-
-Add To Cart
-
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h2>
-Custom Seat Cover
-</h2>
-
-
-<p>
-Comfort and style upgrade.
-</p>
-
-
-<p class="price">
-$50
-</p>
-
-
-<button onclick="addCart('Custom Seat Cover',50)">
-
-Add To Cart
-
-</button>
-
-
-</div>
-
-
-
-
-
-
-</div>
-
-</section>
-
-</div>
-
-
-
-
-
-
-
-
-<!-- ACCOUNT PAGE -->
-
-
-<div id="account" class="page">
-
-
-<section class="shop">
-
-
-<h1>
-My Account
-</h1>
-
-
-
-<div id="accountBox">
-
-
-<h2>
-Tuttio Tuning Account
-</h2>
-
-
-
-<input 
-id="email"
-type="email"
-placeholder="Email">
-
-
-<br><br>
-
-
-<input 
-id="password"
-type="password"
-placeholder="Password">
-
-
-<br><br>
-
-
-<button onclick="signup()">
-
-Create Account
-
-</button>
-
-
-
-<button onclick="login()">
-
-Login
-
-</button>
-
-
-
-<button onclick="logout()">
-
-Logout
-
-</button>
-
-
-
-<p id="message">
-
-</p>
-
-
-</div>
-
-
-</section>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- ABOUT PAGE -->
-
-
-<div id="about" class="page">
-
-
-<section class="shop">
-
-
-<h1>
-About Tuttio Tuning Co.
-</h1>
-
-
-
-<p>
-
-Tuttio Tuning Co. is built for riders who want
-to upgrade, customize, and improve their
-Tuttio Soleil 01.
-
-</p>
-
-
-<p>
-
-Performance. Style. Power.
-
-</p>
-
-
-</section>
-
-
-</div>
-
-
-
-
-
-
-
-
-<!-- CART PAGE -->
-
-
-<div id="cartPage" class="page">
-
-
-<section class="shop">
-
-
-<h1>
-Your Cart
-</h1>
-
-
-<div id="cartPageItems">
-
-</div>
-
-
-</section>
-
-
-</div>
 <script>
-
-
-// ======================
-// MENU SYSTEM
-// ======================
-
-
-function openMenu(){
-
-
-let menu = document.getElementById("sideMenu");
-
-
-
-if(menu.style.left === "0px"){
-
-
-menu.style.left = "-300px";
-
-
-}
-
-else{
-
-
-menu.style.left = "0px";
-
-
-}
-
-
-}
-
-
-
-
-
-
-
-// ======================
-// PAGE SWITCHING
-// ======================
-
-
-function showPage(page){
-
-
-
-let pages = document.getElementsByClassName("page");
-
-
-
-for(let i = 0; i < pages.length; i++){
-
-
-pages[i].style.display = "none";
-
-
-}
-
-
-
-
-document.getElementById(page).style.display = "block";
-
-
-
-openMenu();
-
-
-
-}
-
-
-
-
-
-
-
-// ======================
-// SEARCH SYSTEM
-// ======================
-
-
-function searchProducts(){
-
-
-let search = document
-.getElementById("search")
-.value
-.toLowerCase();
-
-
-
-let products = document
-.getElementById("productList")
-.getElementsByClassName("card");
-
-
-
-for(let i = 0; i < products.length; i++){
-
-
-let name = products[i]
-.innerText
-.toLowerCase();
-
-
-
-if(name.includes(search)){
-
-
-products[i].style.display="block";
-
-
-}
-
-else{
-
-
-products[i].style.display="none";
-
-
-}
-
-
-
-}
-
-
-}
-
-
-
-
-
-
-
-
-// ======================
-// CART SYSTEM
-// ======================
-
-
-let cart = [];
-
-
-
-
 
 function addCart(name,price){
 
+let cart =
+JSON.parse(localStorage.getItem("cart")) || [];
 
 
 cart.push({
 
-
 name:name,
-
-
 price:price
-
 
 });
 
 
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
+);
 
-updateCart();
+
+alert(name + " added to cart!");
+
+}
 
 
+</script>
+
+
+
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>72V Battery | Shadow Garage</title>
+
+<style>
+
+body{
+background:#0b0b0b;
+color:white;
+font-family:Arial;
+margin:0;
+}
+
+
+header{
+background:#151515;
+padding:25px;
+text-align:center;
+color:#a855ff;
+font-size:30px;
+}
+
+
+
+.product{
+
+width:90%;
+max-width:900px;
+margin:50px auto;
+text-align:center;
 
 }
 
 
 
+.product img{
+
+width:100%;
+max-width:600px;
+height:400px;
+object-fit:cover;
+border-radius:20px;
+
+}
 
 
 
+h1{
 
+color:#a855ff;
+font-size:45px;
 
-function updateCart(){
-
-
-
-document
-.getElementById("count")
-.innerHTML = cart.length;
+}
 
 
 
-let items = "";
+.price{
 
-let total = 0;
+font-size:30px;
+color:white;
+margin:20px;
 
-
-
-
-cart.forEach(function(product,index){
-
+}
 
 
-items += `
 
-<div class="item">
+.description{
 
-<b>${product.name}</b>
+font-size:20px;
+color:#ccc;
+line-height:1.6;
 
-<br>
+}
 
-$${product.price}
 
-<br><br>
 
-<button onclick="removeItem(${index})">
+button{
 
-Remove
+background:#7a00ff;
+border:none;
+padding:15px 40px;
+border-radius:12px;
+color:white;
+font-size:20px;
+cursor:pointer;
+margin-top:30px;
+
+}
+
+
+button:hover{
+
+background:#a855ff;
+
+}
+
+
+
+.back{
+
+display:block;
+margin-top:30px;
+color:#a855ff;
+text-decoration:none;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+SHADOW GARAGE
+
+</header>
+
+
+
+<div class="product">
+
+
+<img src="images/72v-battery.jpg">
+
+
+<h1>
+72V Battery Upgrade
+</h1>
+
+
+<div class="price">
+
+$1,299
+
+</div>
+
+
+
+<p class="description">
+
+Upgrade your ride with a high performance 72V battery.
+Experience faster acceleration, longer range, and more power.
+
+</p>
+
+
+
+<button onclick="addCart('72V Battery Upgrade',1299)">
+
+Add To Cart
 
 </button>
 
 
+
+<a class="back" href="shop.html">
+← Back To Shop
+</a>
+
+
+
 </div>
 
-`;
 
 
 
-total += product.price;
+<script>
+
+function addCart(name,price){
+
+let cart =
+JSON.parse(localStorage.getItem("cart")) || [];
 
 
+cart.push({
+
+name:name,
+price:price
 
 });
 
 
-
-
-
-document
-.getElementById("cartItems")
-.innerHTML = items;
-
-
-
-document
-.getElementById("total")
-.innerHTML = total;
-
-
-
-}
-
-
-
-
-
-
-
-
-function removeItem(index){
-
-
-cart.splice(index,1);
-
-
-
-updateCart();
-
-
-
-}
-
-
-
-
-
-
-
-document
-.getElementById("cartButton")
-.onclick=function(){
-
-
-
-let box =
-document.getElementById("cart");
-
-
-
-if(box.style.display === "block"){
-
-
-box.style.display="none";
-
-
-}
-
-else{
-
-
-box.style.display="block";
-
-
-}
-
-
-}
-
-
-
-
-
-
-
-function checkout(){
-
-
-if(cart.length === 0){
-
-
-alert("Your cart is empty!");
-
-}
-
-
-else{
-
-
-alert(
-"Thanks for shopping with Tuttio Tuning Co!"
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
 );
 
 
-}
-
-
-}
-
-
-
-
-
-
-
-
-// ======================
-// ACCOUNT SYSTEM
-// ======================
-
-
-// Firebase can be connected here later
-
-
-function signup(){
-
-
-document
-.getElementById("message")
-.innerHTML =
-"Account created! (Connect Firebase to save accounts)";
-
+alert(name + " added to cart!");
 
 }
-
-
-
-
-function login(){
-
-
-document
-.getElementById("message")
-.innerHTML =
-"Logged in! (Connect Firebase for real login)";
-
-
-}
-
-
-
-
-function logout(){
-
-
-document
-.getElementById("message")
-.innerHTML =
-"You have been logged out.";
-
-
-}
-
 
 
 </script>
